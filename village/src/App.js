@@ -20,14 +20,18 @@ class App extends Component {
     .catch(error => console.log(error))
   }
 
-  
+  reloadSmurfs = (newSmurfs) => {
+    this.setState({
+      smurfs: newSmurfs
+    })
+  }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm reloadSmurfs={this.reloadSmurfs} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
